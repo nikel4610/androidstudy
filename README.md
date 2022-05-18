@@ -1,1 +1,1 @@
-# androidstudy
+# android app study with JAVA
