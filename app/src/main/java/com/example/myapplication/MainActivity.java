@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         et_test = findViewById(R.id.et_test);
-        str = et_test.getText().toString();
 
         editText_test = findViewById(R.id.editText_test);
         btn_test = findViewById(R.id.btn_test);
@@ -30,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                str = et_test.getText().toString();
                 Intent intent = new Intent(MainActivity.this, SubActivity.class);
                 intent.putExtra( "str", str );
                 startActivity(intent); // move activity -> str
