@@ -37,4 +37,12 @@
         android:layout_height="wrap_content"
         android:text="의미심장한 버튼"/>
 
+    <ImageView
+        android:id="@+id/test"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@mipmap/ic_launcher" />
+
+
+
 </LinearLayout>

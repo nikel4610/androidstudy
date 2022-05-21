@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_test;
     private EditText et_test;
     private String str;
+    ImageView test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,15 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra( "str", str );
                 startActivity(intent); // move activity -> str
 
+            }
+        });
+
+        test = (ImageView) findViewById(R.id.test);
+        test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "안녕하세요",
+                        Toast.LENGTH_SHORT).show(); // 토스트 메시지 팝업
             }
         });
 
