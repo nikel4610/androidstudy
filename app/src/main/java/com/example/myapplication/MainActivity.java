@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,7 +11,7 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity {
 
     EditText editText_test;
-    Button btn_test;
+    private Button btn_test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                editText_test.setText("Hello World!");
+                Intent intent = new Intent(MainActivity.this, SubActivity.class);
+                startActivity(intent); // move activity
 
             }
         });
