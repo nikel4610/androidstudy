@@ -5,7 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -20,11 +24,19 @@ public class MainActivity extends AppCompatActivity {
     private String str;
     ImageView test;
     String share = "file";
+    private WebView webView;
+    private String url = "https://www.google.com";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        webView = (WebView) findViewById(R.id.webview);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.loadUrl(url);
+        webView.setWebChromeClient(new WebChromeClient()); // 구글 크롬 클라이언트로 오픈
+        webView.setWebViewClient(new WebViewCientClass());
 
         et_test = findViewById(R.id.et_test);
         et_save = (EditText)findViewById(R.id.et_save);
@@ -60,6 +72,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK) && webView.canGoBack()) {
+            webView.goBack();
+            return true;
+        }
+
+        return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
 
@@ -68,6 +90,14 @@ public class MainActivity extends AppCompatActivity {
         String value = et_save.getText().toString();
         editor.putString("amuname", value); // 밸류값 이름 아무거나 가능
         editor.commit(); // 저장
+    }
+
+    private class WebViewCientClass extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            view.loadUrl(url);
+            return true;
+        }
     }
 }
 
