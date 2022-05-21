@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(MainActivity.this, SubActivity.class);
                 intent.putExtra( "str", str );
-                startActivity(intent); // move activity
+                startActivity(intent); // move activity -> str
 
             }
         });

@@ -18,7 +18,7 @@ public class SubActivity extends AppCompatActivity {
         tv_sub = findViewById(R.id.tv_sub);
 
         Intent intent = getIntent();
-        String str = intent.getStringExtra("str");
+        String str = intent.getStringExtra("str"); // get str from MainActivity
 
         tv_sub.setText(str);
     }
