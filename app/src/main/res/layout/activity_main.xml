@@ -10,7 +10,7 @@
     <WebView
         android:id="@+id/webview"
         android:layout_width="match_parent"
-        android:layout_height="364dp" />
+        android:layout_height="97dp" />
 
     <EditText
         android:id="@+id/et_test"
@@ -49,7 +49,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="299dp"
+        android:layout_weight="1"
         android:gravity="center">
 
         <ImageView
@@ -57,6 +58,21 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@mipmap/ic_launcher" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_capture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </Button>
 
     </LinearLayout>
 </LinearLayout>
